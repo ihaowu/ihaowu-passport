@@ -22,19 +22,19 @@ export class CreateUserDto {
   password!: string
 
   @ApiPropertyOptional({
-    description: '邮箱',
+    description: '邮箱，和手机号互逆',
   })
   @email.optional()
   email!: string
 
   @ApiPropertyOptional({
-    description: '手机号',
+    description: '手机号，和邮箱互逆',
   })
   @mobile
   mobile!: string
 
   @ApiPropertyOptional({
-    description: '验证码',
+    description: '短信验证码，仅手机号注册时需要',
   })
   @code.optional()
   code!: string
