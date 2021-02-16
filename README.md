@@ -43,6 +43,10 @@ $ yarn bootstrap
 $ yarn start
 ```
 
+- WEB 地址: http://127.0.0.1:3000/
+- API 地址: http://127.0.0.1:7100
+- Swagger UI: http://127.0.0.1:7100/doc
+
 > **注意：** 项目使用的数据库是 `sqlite` 数据库，如需切换其他，请修改 `apps/api/prisma/schema.prisma`。
 
 ### 导入示例数据（非必须）
