@@ -14,7 +14,6 @@ import { ApiResponse, ApiOperation, ApiTags } from '@nestjs/swagger'
 import { Request, Response } from 'express'
 
 import { JoiValidationPipe } from '../../pips/joi.pipe'
-import { LocalAuthGuard } from '../../guards/local.guard'
 
 import { AuthService } from './auth.service'
 import { LoginUserDto, ActiveAccountDto } from './dtos/login-user.dto'
@@ -24,11 +23,6 @@ import CreateUserSchema, { CreateUserDto } from './dtos/create-user.dto'
 @Controller('/auth')
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
-
-  @Get('/session')
-  async checkSession(@Req() req: Request): Promise<string> {
-    throw new Error('xx')
-  }
 
   @Post('/login')
   @ApiOperation({
