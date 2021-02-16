@@ -11,7 +11,6 @@
     "prisma:migrate": "prisma migrate dev --preview-feature"
   },
   "dependencies": {
-    "@ihaowu-password/api-interfaces": "^0.1.0",
     "@ihaowu/nestjs-utils": "0.1.1",
     "@nestjs-modules/mailer": "^1.5.1",
     "@nestjs/common": "^7.6.5",
@@ -43,6 +42,7 @@
     "rxjs": "^6.6.3"
   },
   "devDependencies": {
+    "@ihaowu-password/api-interfaces": "^0.1.0",
     "@nestjs/testing": "^7.6.5",
     "@types/bcrypt": "^3.0.0",
     "@types/connect-redis": "^0.0.16",

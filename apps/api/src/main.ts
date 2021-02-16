@@ -25,7 +25,7 @@ App running at:
 
 export async function bootstrap(): Promise<void> {
   const app = await NestFactory.create<NestExpressApplication>(AppModule, {
-    cors: false
+    cors: false,
   })
   const config = app.get(ConfigService)
 

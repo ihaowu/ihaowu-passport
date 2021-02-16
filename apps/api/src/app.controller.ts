@@ -1,9 +1,4 @@
-import {
-  Controller,
-  Get,
-  Request as Req,
-  Response as Res
-} from '@nestjs/common'
+import { Controller, Get, Request as Req, Response as Res } from '@nestjs/common'
 import { ApiResponse, ApiOperation, ApiTags } from '@nestjs/swagger'
 
 import { Request, Response } from 'express'
@@ -15,7 +10,7 @@ import { MeService } from './modules/me/me.service'
 @ApiTags('通用')
 @Controller()
 export class AppController {
-  constructor(private readonly meService: MeService){}
+  constructor(private readonly meService: MeService) {}
 
   @Get('/app/environment.*')
   @ApiOperation({
@@ -45,7 +40,9 @@ export class AppController {
 }
 
 function createUMD(content: object): string {
-  return `(function(root,factory){if(typeof define==='function'&&define.amd){define([],factory)}else if(typeof exports==='object'){module.exports=factory()}else{root.AppEnv=factory()}}(this,function(){return ${JSON.stringify(content)};}));`
+  return `(function(root,factory){if(typeof define==='function'&&define.amd){define([],factory)}else if(typeof exports==='object'){module.exports=factory()}else{root.AppEnv=factory()}}(this,function(){return ${JSON.stringify(
+    content,
+  )};}));`
 }
 
 function createESM(content: object): string {

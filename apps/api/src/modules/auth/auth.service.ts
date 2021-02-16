@@ -158,7 +158,7 @@ export class AuthService {
 
     return userRepo.update({
       where: { id: user.id },
-      data: data
+      data: data,
     })
   }
 

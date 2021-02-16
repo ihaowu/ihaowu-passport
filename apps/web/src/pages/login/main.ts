@@ -1,4 +1,5 @@
 import { createApp } from 'vue'
+import 'ant-design-vue/dist/antd.css'
 
 import devkit, { handleVueError, handleAppError } from '@/util/devkit'
 

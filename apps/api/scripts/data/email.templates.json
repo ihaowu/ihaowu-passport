@@ -1,7 +1,7 @@
 [
   {
     "scene": "active_account",
-    "content": "<p>您好：</p\n    <p>我们收到您在{{appName}}的注册信息，请点击下面的链接来激活帐户：</p>\n    <a href=\"{{appHost}}/auth/active_account.html?email={{to}}&token={{token}}\">激活链接</a>\n    <p>若您没有在{{appName}}填写过注册信息，说明有人滥用了您的电子邮箱，请删除此邮件，我们对给您造成的打扰感到抱歉。</p>\n    <p>{{appName}} 谨上。</p>",
+    "content": "<p>您好：</p\n    <p>我们收到您在{{appName}}的注册信息，请点击下面的链接来激活帐户：</p>\n    <a href=\"{{appHost}}/active_account.html?email={{to}}&token={{token}}\">激活链接</a>\n    <p>若您没有在{{appName}}填写过注册信息，说明有人滥用了您的电子邮箱，请删除此邮件，我们对给您造成的打扰感到抱歉。</p>\n    <p>{{appName}} 谨上。</p>",
     "remark": "账号激活"
   }
 ]

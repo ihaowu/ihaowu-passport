@@ -22,7 +22,7 @@ export class ActiveAccountDto {
   email!: string
 
   @ApiProperty()
-  @string().trim().required()
+  @(string().trim().required())
   token!: string
 
   @ApiPropertyOptional()

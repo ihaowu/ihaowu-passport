@@ -41,7 +41,6 @@ export class CreateUserDto {
 }
 
 export default getJoiSchema(CreateUserDto, joi)
-  ?.or('username', 'mobile', 'email')
+  ?.or('mobile', 'email')
   .with('email', 'password')
-  .with('username', 'password')
   .with('mobile', 'code')

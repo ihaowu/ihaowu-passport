@@ -22,7 +22,10 @@ export class UserService {
    *
    * @todo 类型定义需要优化
    */
-  async getUser<U extends Friends = Friends>(userId: string, userSelect?: Prisma.UserSelect): Promise<U> {
+  async getUser<U extends Friends = Friends>(
+    userId: string,
+    userSelect?: Prisma.UserSelect,
+  ): Promise<U> {
     const defaultsSelect = {
       userId: true,
       username: true,
@@ -33,22 +36,22 @@ export class UserService {
       verified: true,
       mobileVerified: true,
       emailVerified: true,
-      createdAt: true
+      createdAt: true,
     }
     const user = await this.userRepo.findFirst({
       select: {
         ...defaultsSelect,
         ...userSelect,
         isLocked: true,
-        reason: true
+        reason: true,
       },
-      where: { userId }
+      where: { userId },
     })
     if (user) {
       if (user.isLocked) {
         throw new BadRequestException(`用户已冻结：${user.reason}`)
       }
-      return user as unknown as U
+      return (user as unknown) as U
     } else {
       throw new BadRequestException('用户不存在或已注销')
     }
