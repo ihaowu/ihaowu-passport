@@ -1,0 +1,27 @@
+{
+  "folders": [
+    {
+			"name": "app api",
+      "path": "./apps/api"
+    },
+    {
+			"name": "app web",
+      "path": "./apps/web"
+    },
+    {
+			"name": "root",
+      "path": "."
+    }
+  ],
+  "settings": {
+    "cSpell.words": [
+      "dtos",
+      "ihaowu",
+      "joiful",
+      "metatype",
+      "myaccount",
+      "nestjs",
+      "noreply"
+    ]
+  }
+}

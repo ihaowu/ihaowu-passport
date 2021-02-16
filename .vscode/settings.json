@@ -1,0 +1,24 @@
+{
+  "search.exclude": {
+    "**/backups/": true,
+    "**/dist/": true
+  },
+  "cSpell.words": [
+    "Haowu",
+    "alphanum",
+    "devkit",
+    "dtos",
+    "ihaowu",
+    "joiful",
+    "metatype",
+    "microapps",
+    "nestjs",
+    "noreply",
+    "resave",
+    "sassdoc",
+    "typecheck",
+    "vite",
+    "vitejs",
+    "vuedx"
+  ]
+}

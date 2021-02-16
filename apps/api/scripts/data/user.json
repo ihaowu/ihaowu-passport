@@ -1,0 +1,13 @@
+[
+  {
+    "username": "admin",
+    "password": "$2b$10$5tPWq37IksQRcLAVla./MeDi/klshIDNexY9KvjCyH3.TiW4wloc.",
+    "verified": true,
+    "isAdmin": true
+  },
+  {
+    "username": "demo",
+    "password": "$2b$10$5tPWq37IksQRcLAVla./MeDi/klshIDNexY9KvjCyH3.TiW4wloc.",
+    "verified": true
+  }
+]

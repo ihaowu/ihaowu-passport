@@ -1,0 +1,34 @@
+.DS_Store
+.history
+
+node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# IDEs and editors
+.idea/
+
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+coverage/
+backups/
+dist/
+
+*.tsbuildinfo
+
+package-lock.json
+yarn.lock
+
+# 仅忽略根目录的恶
+.env
+!**/prisma/.env

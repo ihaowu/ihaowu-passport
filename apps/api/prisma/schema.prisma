@@ -1,0 +1,81 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+/// 系统用户表
+model User {
+  id        Int       @id @default(autoincrement())
+  userId       String    @unique @default(cuid())
+  avatar   String? /// 头像
+  nickname String? @unique /// 昵称
+  gender   Int     @default(0) /// 性别，0/未知，1/男，2/女性
+  username String? @unique /// 账号名称
+  password String? /// 密码
+  verified Boolean @default(false) /// 账号验证，修改过一次密码后设置为 true
+  email         String? @unique /// 注册邮箱
+  emailVerified Boolean @default(false) /// 验证注册邮箱
+  mobile         String? @unique /// 注册手机号
+  mobileVerified Boolean @default(false) /// 验证注册手机号
+  createdAt DateTime  @default(now())
+  updatedAt DateTime @updatedAt
+  // ======= 状态与权限 ========
+  isAdmin  Boolean @default(false) /// 是否超级管理员
+  isLocked Boolean @default(false) /// 账号已锁定
+  reason String? /// 锁定理由
+  // ======= 未启用定时更新的安全机制 ========
+  emailExpireAt DateTime? /// 邮箱过期时间
+  mobileExpireAt DateTime? /// 手机号过期时间
+  passwordExpireAt DateTime? /// 密码过期时间
+  securityQuestion DateTime? /// 安全问题过期时间
+  // ======= 关联表 ========
+  UserLogs    UserLog[]
+  UserSecurityQuestions UserSecurityQuestion[]
+}
+
+/// 用户安全问题（仅用于找回密码）
+model UserSecurityQuestion {
+  id        Int      @id @default(autoincrement())
+  question  String /// 问题
+  answer   String /// 答案
+  createdAt DateTime @default(now())
+  // ======= 关联用户 ========
+  userId String
+  User   User   @relation(fields: [userId], references: [userId])
+}
+
+/// 用户日志表
+model UserLog {
+  // 2019年12月01日 10:10:10 张三 使用 微信授权 登录系统
+  // level: info，action: auth.login.success，message: 微信授权登录
+  // user: 张三，details: wechat，createAt: 2019年12月01日 10:10:10
+  id        Int      @id @default(autoincrement())
+  level     String /// 日志级别
+  action    String /// 触发的动作
+  message   String /// 描述消息
+  details   String? /// 更多明细
+  userAgent String /// 用户代理
+  clientIp String /// ip 地址
+  createdAt DateTime @default(now())
+  updatedAt DateTime? @updatedAt
+  // ======= 关联用户 ========
+  userId String
+  User   User   @relation(fields: [userId], references: [userId])
+}
+
+/// 邮件模板
+model EmailTemplate {
+  id        Int      @id @default(autoincrement())
+  scene     String /// 应用场景
+  content String /// 模板内容
+  remark String /// 备注
+  enabled Boolean @default(true) /// 是否启用
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
