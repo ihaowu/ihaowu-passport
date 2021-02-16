@@ -15,7 +15,14 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:7300',
+        target: 'http://localhost:7100',
+        changeOrigin: true,
+        rewrite(path) {
+          return path.replace(/^\/api/, '')
+        }
+      },
+      '/app': {
+        target: 'http://localhost:7100',
         changeOrigin: true,
       },
     },

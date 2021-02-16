@@ -14,4 +14,4 @@ import { MyAccountController } from './account.controller'
   exports: [MeService],
   controllers: [MyAccountController, MeController],
 })
-export class MyModule {}
+export class MeModule {}

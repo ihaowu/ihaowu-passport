@@ -24,7 +24,9 @@ App running at:
 }
 
 export async function bootstrap(): Promise<void> {
-  const app = await NestFactory.create<NestExpressApplication>(AppModule)
+  const app = await NestFactory.create<NestExpressApplication>(AppModule, {
+    cors: false
+  })
   const config = app.get(ConfigService)
 
   // 如果是 cookie 安全或启用反向代理，如：nginx

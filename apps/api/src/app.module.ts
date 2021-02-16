@@ -7,8 +7,10 @@ import { RedisModule, RedisModuleOptions } from 'nestjs-redis'
 
 import { useConfigLoader } from '@ihaowu/nestjs-utils'
 
+import { AppController } from './app.controller'
+
 import { AuthModule } from './modules/auth/auth.module'
-import { MyModule } from './modules/my/my.module'
+import { MeModule } from './modules/me/me.module'
 import { UserModule } from './modules/user/user.module'
 import { SharedModule } from './modules/shared/shared.module'
 
@@ -56,10 +58,10 @@ import { SharedModule } from './modules/shared/shared.module'
     }),
     AuthModule,
     UserModule,
-    MyModule,
+    MeModule,
     SharedModule,
   ],
   providers: [],
-  controllers: [],
+  controllers: [AppController],
 })
 export class AppModule {}

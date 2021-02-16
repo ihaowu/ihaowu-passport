@@ -8,6 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@ihaowu-password/api-interfaces": "^0.1.0",
     "ant-design-vue": "^2.0.0-rc.9",
     "axios": "^0.21.1",
     "lodash-es": "^4.17.20",

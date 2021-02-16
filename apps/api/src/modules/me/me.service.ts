@@ -1,29 +1,19 @@
 import {
   Injectable,
-  Logger,
 } from '@nestjs/common'
 
-import { Prisma } from '@prisma/client'
 
 import type { Me } from '@ihaowu-password/api-interfaces/user'
-
-import _ from 'lodash'
 
 import { asteriskToMobile, asteriskToEmail } from '../../lib/security/asterisk'
 
 import { UserService } from '../user/user.service'
-import { PrismaService } from '../shared/prisma.service'
 
 @Injectable()
 export class MeService {
-  private readonly userRepo: Prisma.UserDelegate<unknown>
-  private readonly logger = new Logger(MeService.name, true)
-
   constructor(
-    private readonly userService: UserService,
-    prismaService: PrismaService,
+    private readonly userService: UserService
   ) {
-    this.userRepo = prismaService.user
   }
 
   /**
@@ -31,7 +21,7 @@ export class MeService {
    *
    * @param user
    */
-  async getMe(userId: string): Promise<Me | void> {
+  async getMe(userId: string): Promise<Me> {
     const user = await this.userService.getUser(userId, { mobile: true, email: true }) as Me
 
     // 添加 * 号
