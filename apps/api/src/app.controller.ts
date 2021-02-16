@@ -14,7 +14,7 @@ export class AppController {
 
   @Get('/app/environment.*')
   @ApiOperation({
-    summary: '环境变脸',
+    summary: '环境变量',
     description: '用于非服务端渲染的应用，支持返回 js 和 json 数据',
   })
   @ApiResponse({ status: 200 })
