@@ -15,7 +15,7 @@ import { LocalAuthGuard } from '../../guards/local.guard'
 import { UserService } from '../user/user.service'
 
 @ApiTags('我的账号')
-@Controller('/myaccount')
+@Controller('/api/myaccount')
 export class MyAccountController {
   constructor(private readonly userService: UserService) {}
 

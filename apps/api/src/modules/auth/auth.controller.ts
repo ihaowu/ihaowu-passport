@@ -20,7 +20,7 @@ import { LoginUserDto, ActiveAccountDto } from './dtos/login-user.dto'
 import CreateUserSchema, { CreateUserDto } from './dtos/create-user.dto'
 
 @ApiTags('授权认证')
-@Controller('/auth')
+@Controller('/api/auth')
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 

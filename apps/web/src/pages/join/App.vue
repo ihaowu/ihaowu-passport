@@ -17,6 +17,7 @@
         注册
       </a-button>
     </a-form-item>
+    <a-form-item> 已有账号？<a href="/">去登录</a> </a-form-item>
   </a-form>
   <!-- </a-tab-pane>
     <a-tab-pane key="mobile" tab="手机号注册">

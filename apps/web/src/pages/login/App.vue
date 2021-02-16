@@ -12,6 +12,7 @@
         登录
       </a-button>
     </a-form-item>
+    <a-form-item> 没有账号？<a href="/join.html">立即注册</a> </a-form-item>
   </a-form>
 </template>
 

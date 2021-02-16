@@ -11,19 +11,25 @@ export default defineConfig({
     'sass-bem': path.resolve(__dirname, '../../node_modules/sass-bem'),
     '@': path.resolve(__dirname, 'src'),
   },
+  build: {
+    rollupOptions: {
+      input: {
+        main: path.resolve(__dirname, 'index.html'),
+        join: path.resolve(__dirname, 'join.html'),
+        active_account: path.resolve(__dirname, 'active_account.html')
+      }
+    }
+  },
   plugins: [vue(), vueJsx()],
   server: {
     proxy: {
       '/api': {
         target: 'http://localhost:7100',
-        changeOrigin: true,
-        rewrite(path) {
-          return path.replace(/^\/api/, '')
-        },
+        changeOrigin: true
       },
       '/app': {
         target: 'http://localhost:7100',
-        changeOrigin: true,
+        changeOrigin: true
       },
     },
   },

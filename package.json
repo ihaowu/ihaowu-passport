@@ -9,6 +9,9 @@
     "serve:web": "yarn workspace web serve",
     "demo": "yarn workspace api demo",
     "studio": "yarn workspace api prisma:studio",
+    "build": "npm-run-all --parallel build:api build:web",
+    "build:api": "nest build",
+    "build:web": "yarn workspace web build",
     "build:libs": "tsc -b -w",
     "lint": "eslint --fix \"**/*.{js,jsx,ts,tsx,vue}\"",
     "format": "prettier --write '**/*.{js,jsx,json,tsx,ts,vue,scss,md}'"
