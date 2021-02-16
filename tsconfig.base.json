@@ -9,6 +9,7 @@
     "importHelpers": true,
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
+    "types": ["node"],
     // 实验性功能
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true

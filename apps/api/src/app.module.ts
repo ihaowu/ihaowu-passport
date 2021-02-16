@@ -1,9 +1,12 @@
 import { Module } from '@nestjs/common'
+import { APP_INTERCEPTOR } from '@nestjs/core'
 import { ConfigModule, ConfigService } from '@nestjs/config'
 import { ClientsModule, Transport, RedisOptions } from '@nestjs/microservices'
 
 import { MailerModule } from '@nestjs-modules/mailer'
 import { RedisModule, RedisModuleOptions } from 'nestjs-redis'
+
+import { RavenModule, RavenInterceptor } from 'nest-raven'
 
 import { useConfigLoader } from '@ihaowu/nestjs-utils'
 
@@ -14,6 +17,8 @@ import { MeModule } from './modules/me/me.module'
 import { UserModule } from './modules/user/user.module'
 import { SharedModule } from './modules/shared/shared.module'
 
+const isProd = process.env.NODE_ENV === 'production'
+
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -23,18 +28,18 @@ import { SharedModule } from './modules/shared/shared.module'
     ClientsModule.registerAsync([
       {
         name: 'MICRO_SERVICE',
-        useFactory(configService: ConfigService): RedisOptions {
+        useFactory(cfg: ConfigService): RedisOptions {
           return {
             transport: Transport.REDIS,
-            options: configService.get('redis'),
+            options: cfg.get('redis'),
           }
         },
         inject: [ConfigService],
       },
     ]),
     RedisModule.forRootAsync({
-      useFactory(configService: ConfigService) {
-        return configService.get('redis') as RedisModuleOptions
+      useFactory(cfg: ConfigService) {
+        return cfg.get('redis') as RedisModuleOptions
       },
       inject: [ConfigService],
     }),
@@ -56,12 +61,18 @@ import { SharedModule } from './modules/shared/shared.module'
       },
       inject: [ConfigService],
     }),
+    RavenModule,
     AuthModule,
     UserModule,
     MeModule,
     SharedModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: APP_INTERCEPTOR,
+      useValue: new RavenInterceptor(),
+    },
+  ],
   controllers: [AppController],
 })
 export class AppModule {}

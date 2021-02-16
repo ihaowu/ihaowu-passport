@@ -2,10 +2,7 @@
   <h3>登录</h3>
   <a-form>
     <a-form-item label="用户名">
-      <a-input
-        v-model:value="state.username"
-        placeholder="用户名/邮箱/手机号"
-      ></a-input>
+      <a-input v-model:value="state.username" placeholder="用户名/邮箱/手机号"></a-input>
     </a-form-item>
     <a-form-item label="密码">
       <a-input v-model:value="state.password" type="password"></a-input>

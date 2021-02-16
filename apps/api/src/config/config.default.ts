@@ -3,7 +3,13 @@ import type { ClientOpts as RedisOptions } from 'redis'
 import type { SessionOptions } from 'express-session'
 
 export default () => {
+  const pkg = require('../../package.json')
+
   return {
+    appInfo: {
+      name: pkg.name,
+      version: pkg.version,
+    },
     allowedHosts: [], // 暂未使用
     jwt: <SignOptions>{
       expiresIn: '30m',

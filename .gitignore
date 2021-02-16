@@ -29,6 +29,6 @@ dist/
 package-lock.json
 yarn.lock
 
-# 仅忽略根目录的恶
+# 忽略 .env 文件
 .env
-!**/prisma/.env
+!prisma/.env

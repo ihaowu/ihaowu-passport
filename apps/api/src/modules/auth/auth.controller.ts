@@ -26,14 +26,8 @@ export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
   @Get('/session')
-  @ApiOperation({
-    summary: '检查会话',
-    description: '如果登录未失效，返回 token',
-  })
-  @ApiResponse({ status: 200 })
-  @UseGuards(LocalAuthGuard)
   async checkSession(@Req() req: Request): Promise<string> {
-    return 'success'
+    throw new Error('xx')
   }
 
   @Post('/login')

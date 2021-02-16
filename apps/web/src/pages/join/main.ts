@@ -1,16 +1,15 @@
 import { createApp } from 'vue'
 import 'ant-design-vue/dist/antd.css'
 
-import devkit, { handleVueError, handleAppError } from '@/util/devkit'
+import devkit, { handleVueError } from '@/util/devkit'
 
 import App from './App.vue'
 
-export function runApp() {
-  const app = createApp(App)
+devkit.setup()
 
-  app.config.errorHandler = handleVueError
+const app = createApp(App)
 
-  app.mount('#app')
-}
+// 配置全局错误处理函数
+app.config.errorHandler = handleVueError
 
-devkit.setup().then(runApp).catch(handleAppError)
+app.mount('#app')

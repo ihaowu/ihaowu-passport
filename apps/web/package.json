@@ -8,6 +8,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@sentry/browser": "^6.1.0",
+    "@sentry/tracing": "^6.1.0",
     "ant-design-vue": "^2.0.0-rc.9",
     "axios": "^0.21.1",
     "lodash-es": "^4.17.20",
