@@ -26,10 +26,6 @@ export class JoiValidationPipe implements PipeTransform {
       })
       const error = result.error
       if (error) {
-        // @ts-ignore
-        console.dir(result.debug, {
-          depth: 4,
-        })
         throw new BadRequestException(error.message, 'Validation Failed')
       }
       return result.value
