@@ -4,6 +4,7 @@
   "files": [
     "./**/*.ts"
   ],
+  "devDependencies": {},
   "engines": {
     "node": ">= 10.x"
   },
@@ -11,8 +12,5 @@
     "name": "zhengxs",
     "email": "zhengxs2018@foxmail.com"
   },
-  "license": "MIT",
-  "devDependencies": {
-    "@types/node": "^14.14.28"
-  }
+  "license": "MIT"
 }
